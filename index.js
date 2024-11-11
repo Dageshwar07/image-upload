@@ -1,17 +1,13 @@
 import express from "express";
 import fileUpload from "express-fileupload";
-import { fileURLToPath } from 'url';
-import path, { dirname } from 'path';
 import  userRouter from "./routes/userRouter.js"
+import dotenv  from 'dotenv'
+dotenv.config()
 import {dbConnection}  from "./database/connection.js";
-// Emulate __dirname
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+// Emulate 
 const app = express();
 
-const PORT = 4000
-
-
+const PORT = process.env.PORT
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

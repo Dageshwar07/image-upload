@@ -1,10 +1,12 @@
 import cloudinary from "cloudinary";
 import { User } from "../models/userSchema.js";
+import dotenv from 'dotenv'
+dotenv.config()
 
 cloudinary.config({
-  cloud_name: "dide16ilx",
-  api_key: "379792494121579",
-  api_secret: "Ck2AAnhDcR9MIdTNONwfqUts9VM",
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET,
 });
 
 export const uploadfile = async (req, res) => {
